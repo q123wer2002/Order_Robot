@@ -10,8 +10,9 @@ app.route('/test')
 
 		var objResponse = request('GET', 'http://localhost:5000/getResponse/' + szQuestion);
 
-		var buf = new Buffer(objResponse.body.data);
-		objResponse.body.data = buf.toString();
+		console.log(objResponse);
+		//var buf = new Buffer(objResponse.body.data);
+		//objResponse.body.data = buf.toString();
 
 		res.json(objResponse);
 		res.end();

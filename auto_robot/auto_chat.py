@@ -13,12 +13,21 @@ class VegetableBOT:
     # create ChatBot
     chatbot = ChatBot(
         "chpplen",
-        database = "./database/VegetableBOT_DB"    
+        database = "database/db.sqlite3"  
+        # database = "./database/VegetableBOT_DB"    
     )
 
     def __init__(self):
         self.chatbot.set_trainer(ChatterBotCorpusTrainer)
         # self.chatbot.train("chatterbot.corpus.chinese")
+
+        conversation = [
+            "你好",
+            "你好，有什麼可以為您服務的",
+            "我要喝果汁",
+        ]
+        self.chatbot.set_trainer(ListTrainer)
+        self.chatbot.train(conversation)
 
     def getResponse(self, message=""):
         return self.chatbot.get_response(message)

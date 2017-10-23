@@ -1,6 +1,7 @@
 import sys
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer
 
 from flask import Flask
 from flask import request

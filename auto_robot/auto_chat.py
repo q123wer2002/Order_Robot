@@ -13,7 +13,7 @@ class VegetableBOT:
     # create ChatBot
     chatbot = ChatBot(
         "chpplen",
-        database = "database/sb.sqlite3"    
+        database = "./database/VegetableBOT_DB"    
     )
 
     def __init__(self):

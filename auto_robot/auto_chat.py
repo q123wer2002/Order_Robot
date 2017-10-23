@@ -1,7 +1,6 @@
 import sys
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.trainers import ListTrainer
 
 from flask import Flask
 from flask import request
@@ -22,13 +21,10 @@ class VegetableBOT:
         self.chatbot.set_trainer(ChatterBotCorpusTrainer)
         # self.chatbot.train("chatterbot.corpus.chinese")
 
-        conversation = [
-            "你好",
-            "你好，有什麼可以為您服務的",
-            "我要喝果汁",
-        ]
-        self.chatbot.set_trainer(ListTrainer)
-        self.chatbot.train(conversation)
+        self.chatbot.train('conversation/conversations.yml')
+        self.chatbot.train('conversation/greetings.yml')
+        self.chatbot.train('conversation/trivia.yml')
+        self.chatbot.train('conversation/vegetables.yml')
 
     def getResponse(self, message=""):
         return self.chatbot.get_response(message)

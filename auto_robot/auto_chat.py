@@ -10,11 +10,10 @@ from TTS import response_speech, speech2text
 app = Flask(__name__)
 
 class VegetableBOT:
-    # 建立一個 ChatBot
+    # create ChatBot
     chatbot = ChatBot(
         "chpplen",
-        # 設定訓練的資料庫輸出於根目錄，並命名為 VegetableBOT_DB
-        database = "./database/VegetableBOT_DB"    
+        database = "database/sb.sqlite3"    
     )
 
     def __init__(self):

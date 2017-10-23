@@ -5,26 +5,28 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask
 from flask import request
 
+import os
+
 # from TTS import response_speech, speech2text
 
 app = Flask(__name__)
 
 class VegetableBOT:
-    # create ChatBot
-    chatbot = ChatBot(
-        "chpplen",
-        database = "database/db.sqlite3"  
-        # database = "./database/VegetableBOT_DB"    
-    )
-
     def __init__(self):
+        # create ChatBot
+        path_now = os.path.dirname(os.path.abspath(__file__))
+        self.chatbot = ChatBot(
+            "chpplen",
+            database = path_now+"/database/db.sqlite3"  
+            # database = "./database/VegetableBOT_DB"    
+        )
         self.chatbot.set_trainer(ChatterBotCorpusTrainer)
         # self.chatbot.train("chatterbot.corpus.chinese")
 
-        self.chatbot.train('conversation/conversations.yml')
-        self.chatbot.train('conversation/greetings.yml')
-        self.chatbot.train('conversation/trivia.yml')
-        self.chatbot.train('conversation/vegetables.yml')
+        self.chatbot.train(path_now+'/conversation/conversations.yml')
+        self.chatbot.train(path_now+'/conversation/greetings.yml')
+        self.chatbot.train(path_now+'/conversation/trivia.yml')
+        self.chatbot.train(path_now+'/conversation/vegetables.yml')
 
     def getResponse(self, message=""):
         return self.chatbot.get_response(message)

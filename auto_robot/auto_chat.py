@@ -5,7 +5,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 from flask import Flask
 from flask import request
 
-from TTS import response_speech, speech2text
+# from TTS import response_speech, speech2text
 
 app = Flask(__name__)
 
@@ -32,15 +32,15 @@ def api_root():
 @app.route("/getResponse/<question>")
 def api_response(question):
     response = str(bot.getResponse(question))
-    response_speech(response)
+    # response_speech(response)
     return 'bot: '+ response
 
-@app.route("/audio_getResponse/")
-def api_audio_response():
-    question = speech2text()
-    response = str(bot.getResponse(question))
-    response_speech(response)
-    return 'bot: '+ response
+# @app.route("/audio_getResponse/")
+# def api_audio_response():
+#     question = speech2text()
+#     response = str(bot.getResponse(question))
+#     response_speech(response)
+#     return 'bot: '+ response
 
 if __name__ == "__main__":
     app.run()

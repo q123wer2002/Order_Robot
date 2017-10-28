@@ -23,10 +23,10 @@ class VegetableBOT:
         self.chatbot.set_trainer(ChatterBotCorpusTrainer)
         # self.chatbot.train("chatterbot.corpus.chinese")
 
-        self.chatbot.train(path_now+'/conversation/conversations.yml')
-        self.chatbot.train(path_now+'/conversation/greetings.yml')
-        self.chatbot.train(path_now+'/conversation/trivia.yml')
-        self.chatbot.train(path_now+'/conversation/vegetables.yml')
+        # self.chatbot.train(path_now+'/conversation/conversations.yml')
+        # self.chatbot.train(path_now+'/conversation/greetings.yml')
+        # # self.chatbot.train(path_now+'/conversation/trivia.yml')
+        # self.chatbot.train(path_now+'/conversation/vegetables.yml')
 
     def getResponse(self, message=""):
         return self.chatbot.get_response(message)

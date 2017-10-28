@@ -9,6 +9,10 @@ app.route('/test')
 		var szQuestion = req.query.talk;
 
 		var objResponse = request('GET', 'http://localhost:5000/getResponse/' + szQuestion);
+
+		var buf = new Buffer(objResponse.body);
+		objResponse.body = buf.toString();
+
 		res.json(objResponse);
 		res.end();
 	});

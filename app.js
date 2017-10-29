@@ -5,6 +5,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var robotapi = require('./route/robotapi');
+var path = require('path');
+const nPort = 80;
 //end lib
 
 app.use('/static', express.static('html'));
@@ -22,6 +24,6 @@ app.get('/', function (req, res) {
 	res.sendFile( path.join(szHtmlPath+'/index.html') );
 });
 
-app.listen(80, function () {
-	console.log('Example app listening on port 80!');
+app.listen(nPort, function () {
+	console.log('Example app listening on port ' + nPort + '!');
 });

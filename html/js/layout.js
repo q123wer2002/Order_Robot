@@ -31,7 +31,6 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 				document.body.appendChild(js);
 			}
 		}
-
 	//menu list
 		$rootScope.objMenuList = {
 			index : {name:"首頁", link:"index.html", isSelected:false, isShown:true},
@@ -64,4 +63,17 @@ vegefruit66.directive("scroll", function($window){
 			scope.$apply();
 		});
 	};
+});
+
+vegefruit66.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
 });

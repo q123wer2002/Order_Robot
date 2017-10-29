@@ -40,8 +40,88 @@
 }
 .Bottom .RightBottom{
 	max-width: 100%;
-	width: 66%;
+	width: 65%;
 	height: 90%;
 	padding: 50px 3.5%;
 	display: inline-block;
+}
+.Bottom .RightBottom .TalkingSpace{
+	position: relative;
+	width: 90%;
+	height: 500px;
+	margin-left: 15px; 
+	border-radius: 5px;
+	padding: 15px 0px;
+	background: #eee;
+}
+/* FOR CONVERSATION AREA*/
+.Bottom .RightBottom .TalkingSpace .ConversionArea{
+	width: 92%;
+	height: 360px;
+	background: #fff;
+	margin: auto;
+	padding: 10px 1%;
+	border-radius: 3px;
+	overflow-y: auto;
+}
+.MessageDiv{
+	width: 100%;
+	background: #fff;
+}
+.Message{
+	max-width: 75%;
+	width: auto;
+	padding: 10px 15px;
+	margin: 3px 0px;
+	background: #ECECEC;
+	border-radius: 10px;
+}
+.Message .UserName{
+	font-weight: 900;
+	font-size: 16px;
+	color: #548235;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+	border-bottom: 2px solid #fff;
+}
+.Message .Content{
+	padding: 10px;
+	font-weight: 600;
+}
+.Message .Timestamp{
+	text-align: right;
+	font-size: 12px;
+}
+.Left{
+	float: left;
+}
+.Right{
+	float: right;
+}
+
+/* FOR TYPING AREA*/
+.Bottom .RightBottom .TalkingSpace .TypingArea{
+	width: 95%;
+	height: 70px;
+	background: #F9D96B;
+	border-radius: 3px;
+	padding: 5px 2.5%;
+	margin: 20px auto 0px auto;	
+}
+.Bottom .RightBottom .TalkingSpace .TypingArea #TypingText{
+	width: 90%;
+	height: 45px;
+	font-size: 15px;
+	border:none;
+	padding:10px;
+	margin: 10px 15px 0px 0px;
+}
+#btnSendMsg{
+	background: #56982A;
+	padding:15px;
+	color: #fff;
+	font-style: 15px;
+}
+#btnSendMsg:hover{
+	background: #66B133;
 }

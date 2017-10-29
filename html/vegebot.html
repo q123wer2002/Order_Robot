@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/vegebot.css">
 	<!-- End to load -->
 </head>
-<body ng-controller="vegebotController">
+<body ng-controller="vegebotController" ng-init="fnPreLoadScript()">
 
 	<!-- gogle analysis -->
 	<script>
@@ -39,7 +39,23 @@
 			<div class="LeftBottom">
 				<p>我們是蔬果機器人，可以滿足您的需求，只需要和我們說說話唷</p>
 			</div>
-			<div class="RightBottom"></div>
+			<div class="RightBottom">
+				<div class="TalkingSpace">
+					<div class="ConversionArea" ng-init="objMessage.fnSendMsg(true)">
+						<div class="MessageDiv" ng-class="{Left:msg.isRobot,Right:!msg.isRobot}" ng-repeat="msg in aryConversation">
+							<div class="Message" ng-class="{Left:msg.isRobot,Right:!msg.isRobot}">
+								<div class="UserName">{{msg.user}}</div>
+								<div class="Content">{{msg.content}}</div>
+								<div class="Timestamp">{{msg.timestamp}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="TypingArea">
+						<input id="TypingText" type="text" placeholder="輸入與機器人說話的內容" ng-model="objMessage.szMessage" ng-enter="objMessage.fnSendMsg(false)">
+						<a id="btnSendMsg" href="javascript:;" ng-click="objMessage.fnSendMsg(false)">送出</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- end index -->

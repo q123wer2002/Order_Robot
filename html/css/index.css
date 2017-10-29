@@ -1,0 +1,43 @@
+#hint{
+	font-size: 25px;
+	font-weight: 700;
+	margin:-30px 0px 30px 15px;
+}
+
+.fruitIntro{
+	width: 1200px;
+	margin: auto;
+}
+.fruitIntro img{
+	max-width: 220px;
+	max-height: 190px;
+	border: none;
+}
+.fruitIntro li{	
+	display: inline-block;
+	position: relative;
+	width: 220px;
+	margin: 0px 20px 0px 0px;
+	font-size: 12px;
+	list-style: none;
+	text-align: center;
+}
+.fruitIntro h1{
+	margin:10px 0px 0px 0px;
+	color: #548235;
+	font-weight: 600;
+}
+.fruitIntro li p{
+	min-height: 180px;
+	float: left;
+	padding: 15px 0px;
+	text-align: left;
+}
+.fruitIntro .verticalLine{
+	position: absolute;
+	right: -11px;
+	bottom: 40px;
+	width: 0px;
+	height: 200px;
+	border-left: 1px solid rgba(192,0,0,0.3);
+}

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/q123wer2002/Order_Robot#readme",
   "dependencies": {
+    "@google-cloud/speech": "^0.10.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "sync-request": "^4.1.0"

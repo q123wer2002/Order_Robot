@@ -1,0 +1,14 @@
+<input type="hidden" ng-init="$root.fnPreLoadScript()">
+<div class="logo">
+	<a href="index.html">	
+		<img src="https://vegefruit66.000webhostapp.com/images/logo.png" width="250px" />
+		<h1>蔬果溜溜</h1>
+	</a>
+</div>
+<div>
+	<ul class="lstMenu">
+		<a href="{{menu.link}}" ng-repeat="menu in $root.objMenuList" ng-init="$root.StyleTargetMenu(menu)" ng-class="{selectedMenu:menu.isSelected}" ng-if="menu.isShown" title="{{menu.name}}" ng-style=menu.style ><li>{{menu.name}}</li></a>
+	</ul>
+</div>
+
+<!-- 	<a href="https://www.facebook.com/vegetable66/" target="_new" class="fa fa-facebook" id="fbLink"></a> -->

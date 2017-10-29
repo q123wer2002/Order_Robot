@@ -1,0 +1,93 @@
+
+@import url("font-awesome/css/font-awesome.min.css");
+
+body{
+	min-width:1200px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	color: #6b7485;
+	font-family: '文泉驛微米黑 Regular', '文泉驛微米黑','Arial Negreta cursiva', 'Arial','微軟正黑體';
+	overflow-x:hidden;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video{margin: 0;padding: 0;border: 0;transition:opacity .2s ease,color .2s ease,background .2s ease,box-shadow .2s ease,text-shadow .2s ease,filter .2s ease,padding .2s ease,border .2s ease;font-family: '微軟正黑體';font-weight: 400;}
+ *:focus { outline: none; }
+a {	background: transparent;text-decoration: none;color: #000;}a:active,a:hover {outline: 0;}
+button{border:none;font-family: "微軟正黑體";}
+button:hover{cursor: pointer;}
+hr{width: 50%;border-color: rgba(255,255,255,0.3);}
+
+/* global */
+	.limitWebView{max-width: 1024px;}
+	.icon{display: inline-block;}
+
+
+.header{
+	position: relative;
+	width: 100%;
+	min-height: 324px;
+	background: url("./../images/banner_fruit.jpg");
+	background-position: center;
+	font-size: 18px;
+}
+	.logo{
+		width: 250px;
+		height: 150px;
+		margin: 0px 0px 10px 100px;
+		padding-top: 20px;
+		text-align: center;
+	}
+	.lstMenu{	
+		width: 100%;
+		margin: 30px 0px 0px 50px;
+		font-size:15px;
+		list-style: none;
+	}
+	.lstMenu a{
+		display: inline-block;
+		padding:10px 5px 5px 5px;
+		color: #000000;
+		margin: 0px 20px;
+	}
+	.lstMenu li{font-weight: 700;}
+	.lstMenu a:hover{
+		color: #548235;
+		border-bottom: 3px solid #548235;
+	}
+	.selectedMenu{
+		border-bottom: 3px solid #548235;
+		color: #548235;
+	}
+	#buyNow{float: right;padding: 7px 25px;margin: 30px;color: #fff;background-color: #C00000;}
+	#buyNow:hover{background-color: #DA5050;}
+	#temp{float: right;padding: 7px 5px;margin: 30px;color:#000000;font-weight: 400;border-bottom:3px solid #548235;}
+.body{
+	position: relative;
+	width: 1200px;
+	height: auto;
+	margin: 15px auto 50px auto;
+}
+.footer{
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	height: auto;
+	margin: 50px 0px 0px 50px;
+	background: #fff;
+	font-size: 12px;
+}
+	.copyright{
+		padding-bottom: 20px;
+	}
+	#contactInfo{
+		position: absolute;
+		right: 150px;
+		bottom: 20px;
+		padding: 0px 10px;
+		font-size:18px;
+		font-weight: 700;
+		color: #548235;
+		border-bottom: 2px solid #C00000;
+	}

@@ -4,11 +4,16 @@ var express = require('express');
 var app = express();
 var request = require('sync-request');
 
-app.route('/test')
-	.get(function(req,res,next){
-		var szQuestion = req.query.talk;
+const objRobotApi = {
+	host : "localhost",
+	port : 5000
+};
 
-		var objResponse = request('GET', 'http://localhost:5000/getResponse/' + szQuestion);
+app.route('/talk')
+	.get(function(req,res,next){
+		var szQuestion = req.query.question;
+
+		var objResponse = request('GET', 'http://' + objRobotApi['host'] + ':' + objRobotApi['port'] + '/getResponse/' + szQuestion);
 
 		var buf = new Buffer(objResponse.body);
 		objResponse.body = buf.toString();

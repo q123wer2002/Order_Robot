@@ -49,6 +49,16 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 				objMenu.isSelected = true;
 			}
 		}
+	//ajax
+		$rootScope.fnAjax = function( szMethod, szUrl ){
+			$http({
+				method: szMethod,
+				url: szUrl,
+			}).then(function successCallback(response) {
+				console.log(response);
+			}, function errorCallback(response) {
+			});
+		}
 });
 
 //directive

@@ -11,13 +11,14 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope){
 				return;
 			}
 
-			//create message
-			var date = new Date();
-			var szUserName = ( isRobot == true ) ? "蔬果機器人" : "你";
-			var objConver = { "user":szUserName, "content":this.szMessage, "timestamp":date.toLocaleString(), "isRobot":isRobot };
+			//create message object
+			var szMessage = this.szMessage;
+			fnSendMsg2Conversion( isRobot, szMessage, $scope.aryConversation );
 
-			//send into array conversation
-			$scope.aryConversation.push( objConver );
+			//get robot api
+			if( isRobot == false ){
+				fnRobotResponse( szMessage, $scope.aryConversation );
+			}
 
 			//clear szMessage
 			this.szMessage = "";
@@ -27,4 +28,23 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope){
 			jQuery('.ConversionArea').animate({ scrollTop: nHeight }, 150);
 		}
 	};
+
+	//send message into conversation
+	var fnSendMsg2Conversion = function( isRobot, szMessage, aryConversion ){
+		var date = new Date();
+		var szUserName = ( isRobot == true ) ? "蔬果機器人" : "你";
+		var objMsg = { "user":szUserName, "content":szMessage, "timestamp":date.toLocaleString(), "isRobot":isRobot };
+
+		//send into array conversation
+		aryConversion.push( objMsg );
+	}
+
+	//use robot api
+	var fnRobotResponse = function( szMessage, aryConversion ){
+		//use api to get response
+		var szRobotMsg = $rootScope.fnAjax( "GET", "http://18.216.141.151/robotapi/test?talk=" + szMessage );
+
+		//add robot message into conversation
+		fnSendMsg2Conversion( true, szRobotMsg, aryConversion );
+	}
 });

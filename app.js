@@ -3,12 +3,14 @@
 //lib
 var express = require('express');
 var app = express();
+var cors = require('cors')
 var bodyParser = require('body-parser');
 var robotapi = require('./route/robotapi');
 var path = require('path');
 const nPort = 80;
 //end lib
 
+app.use(cors());
 app.use('/static', express.static('html'));
 app.use(express.static('html'));
 

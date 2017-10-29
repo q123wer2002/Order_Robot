@@ -1,5 +1,5 @@
 //
-vegefruit66.controller('vegebotController', function($scope,$rootScope){
+vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval){
 	$rootScope.currentLink = "vegebot.html";
 	
 	$scope.aryConversation = [];
@@ -42,9 +42,24 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope){
 	//use robot api
 	var fnRobotResponse = function( szMessage, aryConversion ){
 		//use api to get response
-		var szRobotMsg = $rootScope.fnAjax( "GET", "http://18.216.141.151/robotapi/test?talk=" + szMessage );
+		var objResponse = undefined;
+		$rootScope.fnAjax( "GET", "http://18.216.141.151/robotapi/talk?question=" + szMessage, objResponse );
 
-		//add robot message into conversation
-		fnSendMsg2Conversion( true, szRobotMsg, aryConversion );
+		console.log("START");
+
+		//wait response
+		var interval_waitResponse = $interval(function(){
+			if( objResponse == undefined ){
+				console.log("WAIT");
+				return;
+			}
+
+			console.log(objResponse);
+			
+			//add robot message into conversation
+			//fnSendMsg2Conversion( true, szRobotMsg, aryConversion );
+
+			$interval.cancel(interval_waitResponse);
+		}, 1000);
 	}
 });

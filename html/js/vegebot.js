@@ -13,19 +13,17 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 			//create message object
 			var szMessage = this.szMessage;
+
+			//clear szMessage
+			this.szMessage = "";
+
+			//send message
 			fnSendMsg2Conversion( isRobot, szMessage, $scope.aryConversation );
 
 			//get robot api
 			if( isRobot == false ){
 				fnRobotResponse( szMessage, $scope.aryConversation );
 			}
-
-			//clear szMessage
-			this.szMessage = "";
-
-			//ui, scroll to down
-			var nHeight = jQuery('.ConversionArea').prop('scrollHeight') - jQuery('.ConversionArea').position().top;
-			jQuery('.ConversionArea').animate({ scrollTop: nHeight }, 150);
 		}
 	};
 
@@ -37,29 +35,33 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 		//send into array conversation
 		aryConversion.push( objMsg );
+
+		//ui, scroll to down
+		var nHeight = jQuery('.ConversionArea').prop('scrollHeight') - jQuery('.ConversionArea').position().top;
+		jQuery('.ConversionArea').animate({ scrollTop: nHeight }, 150);
 	}
 
 	//use robot api
 	var fnRobotResponse = function( szMessage, aryConversion ){
 		//use api to get response
-		var objResponse = undefined;
-		$rootScope.fnAjax( "GET", "http://18.216.141.151/robotapi/talk?question=" + szMessage, objResponse );
+		var szUrl = "http://18.216.141.151/robotapi/talk?question=" + szMessage;
 
-		console.log("START");
+		//call robot api
+		$rootScope.fnAjax( "GET", szUrl, function(objError, objData){
+			//get response
+			if( objError ){ console.log(objError); }
 
-		//wait response
-		var interval_waitResponse = $interval(function(){
-			if( objResponse == undefined ){
-				console.log("WAIT");
-				return;
+			//do action
+			if( objData.status != 200 || objData.data.body.indexOf('bot:') == -1 ){
+				//error occure
 			}
 
-			console.log(objResponse);
-			
-			//add robot message into conversation
-			//fnSendMsg2Conversion( true, szRobotMsg, aryConversion );
+			console.log(objData);
+			var subRobotMsg = objData.data.body.split('bot: ');
+			var szRobotMsg = subRobotMsg[1];
 
-			$interval.cancel(interval_waitResponse);
-		}, 1000);
+			//put into array
+			fnSendMsg2Conversion(true, szRobotMsg, aryConversion);
+		});
 	}
 });

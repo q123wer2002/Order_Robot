@@ -50,15 +50,21 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			}
 		}
 	//ajax
-		$rootScope.fnAjax = function( szMethod, szUrl, objResponse ){
+		$rootScope.fnAjax = function( szMethod, szUrl, fnResponse, isDebugMode ){
 			$http({
 				method: szMethod,
 				url: szUrl,
 			}).then(function successCallback(response) {
-				objResponse = response;
-				console.log("DONE");
+				
+				if( isDebugMode == true ){
+					console.log(response);
+					console.log(status);
+				}
+
+				fnResponse( false, response );
 			}, function errorCallback(response) {
-				objResponse = response;
+				//do nothing
+				console.error(response);
 			});
 		}
 });

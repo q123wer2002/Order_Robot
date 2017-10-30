@@ -98,6 +98,10 @@
 .Right{
 	float: right;
 }
+.Error{
+	background:#FC7474;
+	color:#fff;
+}
 
 /* FOR TYPING AREA*/
 .Bottom .RightBottom .TalkingSpace .TypingArea{

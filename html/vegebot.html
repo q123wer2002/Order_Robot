@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/layout.css">
 	
 	<script type="text/javascript" src="./js/lib/angular.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.js"></script>
 	<script type="text/javascript" src="./js/layout.js"></script>
 
 	<meta name="{{meta.name}}" content="{{meta.content}}" ng-repeat="meta in $root.header.metas">
@@ -16,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/vegebot.css">
 	<!-- End to load -->
 </head>
-<body ng-controller="vegebotController" ng-init="fnPreLoadScript()">
+<body ng-controller="vegebotController">
 
 	<!-- gogle analysis -->
 	<script>
@@ -43,7 +44,7 @@
 				<div class="TalkingSpace">
 					<div class="ConversionArea" ng-init="objMessage.fnSendMsg(true)">
 						<div class="MessageDiv" ng-class="{Left:msg.isRobot,Right:!msg.isRobot}" ng-repeat="msg in aryConversation">
-							<div class="Message" ng-class="{Left:msg.isRobot,Right:!msg.isRobot}">
+							<div class="Message" ng-class="{Left:msg.isRobot,Right:!msg.isRobot,Error:msg.isError}">
 								<div class="UserName">{{msg.user}}</div>
 								<div class="Content">{{msg.content}}</div>
 								<div class="Timestamp">{{msg.timestamp}}</div>

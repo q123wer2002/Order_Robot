@@ -18,19 +18,6 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			body : "", //depends on page
 			footer : "./templates/footer.html",
 		};
-
-		//script
-		var objPreLoadScript = {
-			jquery : {src:"./js/lib/jquery.js"},
-		};
-		$rootScope.fnPreLoadScript = function(){
-			for( var script in objPreLoadScript ){
-				var js = document.createElement("script");
-				js.type = "text/javascript";
-				js.src = objPreLoadScript[script].src;
-				document.body.appendChild(js);
-			}
-		}
 	//menu list
 		$rootScope.objMenuList = {
 			index : {name:"首頁", link:"index.html", isSelected:false, isShown:true},
@@ -64,7 +51,7 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 				fnResponse( false, response );
 			}, function errorCallback(response) {
 				//do nothing
-				console.error(response);
+				fnResponse(response);
 			});
 		}
 });

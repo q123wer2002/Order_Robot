@@ -35,7 +35,10 @@ app.route('/db/data')
 		};
 		
 		dynamodbapi.fnPostData2DB(objData, function(err,data){
-			if(err) console.error( "Error : " + err );
+			if(err) {
+				console.error( "Error : " + err );
+				res.json(err);
+			}
 
 			res.json(data);
 		});

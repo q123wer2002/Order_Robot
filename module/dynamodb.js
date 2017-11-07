@@ -3,8 +3,8 @@
 //for aws db
 var AWS = require("aws-sdk");
 AWS.config.update({
-	accessKeyId: 'AKIAIDPFHSD2XMGR7BYA',
-	secretAccessKey: '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',
+	accessKeyId: 'AKIAJ6ESHMR4YJGWGF3A',
+	secretAccessKey: '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',
 	region: "us-east-2"
 });
 

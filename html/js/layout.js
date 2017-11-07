@@ -37,12 +37,24 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			}
 		}
 	//ajax
-		$rootScope.fnAjax = function( szMethod, szUrl, fnResponse, isDebugMode ){
-			$http({
+		$rootScope.fnAjax = function( szMethod, szUrl, objParam, fnResponse, isDebugMode=false ){
+			if( fnResponse == undefined ){
+				fnResponse = objParam;
+			}
+
+			var objNormalParam = {
 				method: szMethod,
 				url: szUrl,
-			}).then(function successCallback(response) {
-				
+			};
+
+			var objPOSTParam = {
+				header : { 'Content-Type':'application/json' },
+				data : objParam
+			};
+
+			var objConnectParam = ( szMethod.toUpperCase() == "GET" ) ? objNormalParam : angular.extend({}, objNormalParam, objPOSTParam);
+
+			$http( objConnectParam ).then(function successCallback(response) {
 				if( isDebugMode == true ){
 					console.log(response);
 					console.log(status);

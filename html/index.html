@@ -39,7 +39,7 @@
 		<p id="hint">水果小知識</p>
 		<ul class="fruitIntro">
 			<li ng-repeat="fruit in aryFruitIntro">
-				<img src="{{fruit.picUri}}" />
+				<img ng-src="{{fruit.picUri}}" />
 				<h1>{{fruit.name}}</h1>
 				<p>{{fruit.info}}</p>
 				<hr class="verticalLine" ng-if="$index != aryFruitIntro.length-1">

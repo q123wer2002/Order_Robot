@@ -45,7 +45,7 @@
 					<div class="ConversionArea" ng-init="objMessage.fnSendMsg(true)">
 						<div class="MessageDiv" ng-class="{Left:msg.isRobot,Right:!msg.isRobot}" ng-repeat="msg in aryConversation">
 							<div class="Message" ng-class="{Left:msg.isRobot,Right:!msg.isRobot,Error:msg.isError}">
-								<div class="UserName">{{msg.user}}</div>
+								<div class="UserName">{{msg.sender}}</div>
 								<div class="Content">{{msg.content}}</div>
 								<div class="Timestamp">{{msg.timestamp}}</div>
 							</div>

@@ -33,7 +33,7 @@ app.route('/db/data')
 				"timestamp" : objMessage.timestamp
 			}
 		};
-		console.log(objMessage);
+		
 		dynamodbapi.fnPostData2DB(objData, function(err,data){
 			if(err) console.error( "Error : " + err );
 

@@ -29,7 +29,11 @@ var objTableParams = {
 var objDbApi = {};
 
 //get table schema
-objDbApi.fnCreateDefaultTable = function(fnRespose, objTableParam=objTableParams){
+objDbApi.fnCreateDefaultTable = function(fnRespose, objTableParam){
+	if( objTableParam == undefined ){
+		objTableParam = objTableParams;
+	}
+
 	//start action
 	dynamodb.createTable(objTableParam, function(err, data) {
 		if(err) fnRespose(err);

@@ -21,6 +21,7 @@
     "aws-sdk": "^2.145.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "dynamodb": "^1.0.0",
     "express": "^4.16.2",
     "path": "^0.12.7",
     "sync-request": "^4.1.0",

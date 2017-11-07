@@ -3,9 +3,10 @@
 //for aws db
 var AWS = require("aws-sdk");
 AWS.config.update({
-	accessKeyId: 'AKIAJ6ESHMR4YJGWGF3A',
-	secretAccessKey: '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',
-	region: "us-east-2"
+	userName : 'EC2User',
+	password : '8}ZHGiZTJr72',
+	accessKeyId: 'AKIAJYRQQDHTRJMUIKVQ',
+	secretAccessKey: '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',
 });
 
 var dynamodb = new AWS.DynamoDB();

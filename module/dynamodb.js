@@ -29,7 +29,7 @@ var objTableParams = {
 var objDbApi = {};
 
 //get table schema
-objDbApi.fnCreateDefaultTable = function(fnRespose=function(err,data){console.log(err);}, objTableParam=objTableParams){
+objDbApi.fnCreateDefaultTable = function(fnRespose, objTableParam=objTableParams){
 	//start action
 	dynamodb.createTable(objTableParam, function(err, data) {
 		if(err) fnRespose(err);
@@ -39,7 +39,7 @@ objDbApi.fnCreateDefaultTable = function(fnRespose=function(err,data){console.lo
 };
 
 //post data
-objDbApi.fnPostData2DB = function(objData,fnRespose=function(err,data){console.log(err);}){
+objDbApi.fnPostData2DB = function(objData,fnRespose){
 	docClient.put(objData,function(err,data){
 		if(err) fnRespose(err);
 

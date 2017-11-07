@@ -105,7 +105,7 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 		$rootScope.fnAjax( "POST", szDBApiUrl, objMsg, function(objError, objData){
 			if(objError) console.log(objError);
 
-			//console.log(objData);
+			console.log(objData);
 		});
 	}
 });

@@ -101,11 +101,11 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 	//save data into db
 	var fnSaveMsg2DB = function( objMsg ){
-		var szDBApiUrl = "http://localhost/awsapi/db/data";
+		var szDBApiUrl = "http://18.216.141.151/awsapi/db/data";
 		$rootScope.fnAjax( "POST", szDBApiUrl, objMsg, function(objError, objData){
 			if(objError) console.log(objError);
 
-			console.log(objData);
+			//console.log(objData);
 		});
 	}
 });

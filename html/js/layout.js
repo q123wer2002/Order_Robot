@@ -53,7 +53,7 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			};
 
 			var objConnectParam = ( szMethod.toUpperCase() == "GET" ) ? objNormalParam : angular.extend({}, objNormalParam, objPOSTParam);
-			console.log(objConnectParam);
+			//console.log(objConnectParam);
 			$http( objConnectParam ).then(function successCallback(response) {
 				if( isDebugMode == true ){
 					console.log(response);

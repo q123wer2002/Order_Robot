@@ -2,15 +2,6 @@
 
 //for aws db
 var AWS = require("aws-sdk");
-AWS.config.update({
-	region : 'us-east-2',
-	userName : 'EC2User',
-	accessKeyId: 'AKIAI6Y7MPLACL654BLQ',
-	secretAccessKey : '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',
-});
-
-var iam = new AWS.IAM();
-
 var dynamodb = new AWS.DynamoDB();
 var docClient = new AWS.DynamoDB.DocumentClient();
 

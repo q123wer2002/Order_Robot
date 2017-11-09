@@ -56,7 +56,7 @@ iamApi.fnGetNewKey = function(){
 }
 
 //interval to get new access key
-var nExpireTime = 4*60 + 30; //not excess 5 mins
+var nExpireTime = (4*60 + 30)*1000; //not excess 5 mins
 var interval_getKey = setInterval(iamApi.fnGetNewKey, nExpireTime);
 
 module.exports = iamApi;

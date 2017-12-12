@@ -18,6 +18,21 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			body : "", //depends on page
 			footer : "./templates/footer.html",
 		};
+	//get api url
+		var szApiServer = "http://localhost";
+		var objApiList = {
+			"USERIP" : "http://freegeoip.net/json/",
+			"ROBOT" : szApiServer + "/robotapi/talk?question=",
+			"DB" : szApiServer + "/awsapi/db/data",
+			"SPEAK" : szApiServer + "/googleapi/tts?query=",
+		};
+		$rootScope.fnGetApiUrl = function( szApiType, szMessage ){
+			if( szMessage == undefined || szMessage.length == 0 ){
+				return objApiList[ szApiType.toUpperCase() ];
+			}
+
+			return objApiList[ szApiType.toUpperCase() ] + szMessage;
+		}
 	//menu list
 		$rootScope.objMenuList = {
 			index : {name:"首頁", link:"index.html", isSelected:false, isShown:true},

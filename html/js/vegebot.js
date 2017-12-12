@@ -37,7 +37,7 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 	var isInitDone = false;
 	var szIP = "";
 	var fnGetUserIP = function(fnResponse){
-		var szTestIpUrl = "http://freegeoip.net/json/";
+		var szTestIpUrl = $rootScope.fnGetApiUrl( "USERIP" );
 		$rootScope.fnAjax( "GET", szTestIpUrl, function(objError, objData){
 			if(objError) console.log(objError);
 
@@ -53,6 +53,11 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 		//send into array conversation
 		aryConversion.push( objMsg );
+		
+		//speak
+		if( isRobot == true ){
+			fnSpeakAudio(objMsg.content);
+		}
 
 		//ui, scroll to down
 		var nHeight = jQuery('.ConversionArea').prop('scrollHeight') - jQuery('.ConversionArea').position().top;
@@ -72,7 +77,7 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 	//use robot api
 	var fnRobotResponse = function( szMessage, aryConversion ){
 		//use api to get response
-		var szRobotUrl = "http://18.216.141.151/robotapi/talk?question=" + szMessage;
+		var szRobotUrl = $rootScope.fnGetApiUrl( "ROBOT", szMessage );
 		var szErrorMessage = "系統錯誤，可按F12查看";
 
 		//call robot api
@@ -101,11 +106,29 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 	//save data into db
 	var fnSaveMsg2DB = function( objMsg ){
-		var szDBApiUrl = "http://18.216.141.151/awsapi/db/data";
+		var szDBApiUrl = $rootScope.fnGetApiUrl( "DB" );
 		$rootScope.fnAjax( "POST", szDBApiUrl, objMsg, function(objError, objData){
 			if(objError) console.log(objError);
 
 			//console.log(objData);
+		});
+	}
+
+	//speak
+	var fnSpeakAudio = function( szMessage ){
+		console.log(szMessage);
+		var szSpeakApiUrl = $rootScope.fnGetApiUrl( "SPEAK", szMessage );
+		$rootScope.fnAjax( "GET", szSpeakApiUrl, function(objError, objData){
+			if(objError) console.log(objError);
+
+			//set google tts url
+			//var HTMLGoogletts = document.getElementById("googletts");
+			//HTMLGoogletts.src = objData.data;
+
+			//speak
+			var AudioPlayer = document.getElementById("AudioPlayer");
+			AudioPlayer.src = objData.data;
+			AudioPlayer.play();
 		});
 	}
 });

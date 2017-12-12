@@ -10,7 +10,7 @@ var host = 'https://translate.google.com';
 * @param   {Number!} speed  show = 0.24, default is 1
 * @return  {String}  url
 */
-module.exports = function (text, lang="zh-TW", speed=1) {
+module.exports = function (text, lang="zh-tw", speed=1) {
 	if (typeof text !== 'string' || text.length === 0) {
 		throw new TypeError('text should be a string');
 	}

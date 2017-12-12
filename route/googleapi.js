@@ -64,4 +64,11 @@ app.route('/test')
 		});
 	});
 
+app.route('/tts')
+	.get(function(req,res,next){
+		var szQuery = req.query.query;
+		res.json( googletts(szQuery) );
+		res.end();
+	});
+
 module.exports = app;

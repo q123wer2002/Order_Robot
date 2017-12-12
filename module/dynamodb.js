@@ -1,10 +1,5 @@
 'use strict'
 
-//for aws db
-var AWS = require("aws-sdk");
-var dynamodb = new AWS.DynamoDB();
-var docClient = new AWS.DynamoDB.DocumentClient();
-
 var objTableParams = {
 	TableName : "Robot_Conversation",
 	KeySchema: [
@@ -23,7 +18,7 @@ var objTableParams = {
 var objDbApi = {};
 
 //get table schema
-objDbApi.fnCreateDefaultTable = function(fnRespose, objTableParam){
+objDbApi.fnCreateDefaultTable = function(dynamodb, fnRespose, objTableParam){
 	if( objTableParam == undefined ){
 		objTableParam = objTableParams;
 	}
@@ -37,7 +32,7 @@ objDbApi.fnCreateDefaultTable = function(fnRespose, objTableParam){
 };
 
 //post data
-objDbApi.fnPostData2DB = function(objData,fnRespose){
+objDbApi.fnPostData2DB = function(docClient, objData,fnRespose){
 	docClient.put(objData,function(err,data){
 		if(err) fnRespose(err);
 

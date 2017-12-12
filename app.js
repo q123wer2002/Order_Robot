@@ -6,7 +6,8 @@ var app = express();
 var cors = require('cors')
 var bodyParser = require('body-parser');
 var robotapi = require('./route/robotapi');
-var awsapi = require('./route/awsapi');
+var googleapi = require('./route/googleapi');
+//var awsapi = require('./route/awsapi');
 var path = require('path');
 const nPort = 80;
 //end lib
@@ -18,7 +19,8 @@ app.use(express.static('html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/robotapi", robotapi);
-app.use("/awsapi", awsapi);
+app.use("/googleapi", googleapi);
+//app.use("/awsapi", awsapi);
 
 //local var function
 var szHtmlPath = __dirname + "/html";

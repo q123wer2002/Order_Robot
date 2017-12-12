@@ -3,27 +3,21 @@
 var fs = require('fs');
 var config = require('./../config.json');
 
-//aws config
-var AWS = require("aws-sdk");
-AWS.config.update(config.aws_config);
-
-//iam object
-var iam = new AWS.IAM();
-
 //api object
 var iamApi = {};
-iamApi.fnGetNewKey = function(){
+iamApi.fnGetConfig = function(){
+	return config.aws_config;
+}
+iamApi.fnGetNewKey = function( iam, fnResponse ){
 	var objCreateKey = {
 		UserName : config.aws_config.userName
 	};
 
 	iam.createAccessKey( objCreateKey, function(err,data){
 		if(err){
-			console.log(err, err.stack);
+			fnResponse(err);
 			return;
 		}
-
-		console.log( "got new key, update key :" + data.AccessKey.AccessKeyId );
 
 		//new delete object
 		var objDeleteKey = {
@@ -34,13 +28,13 @@ iamApi.fnGetNewKey = function(){
 		//update key
 		config.aws_config.accessKeyId = data.AccessKey.AccessKeyId;
 		config.aws_config.secretAccessKey = data.AccessKey.SecretAccessKey;
-		AWS.config.update(config.aws_config);
+		//AWS.config.update(config.aws_config);
 
 		//write file
 		var szJson = JSON.stringify(config);
 		fs.writeFile('config.json', szJson, 'utf8', function(err,data){
 			if(err){
-				console.log(err, err.stack);
+				fnResponse(err);
 				return;
 			}
 		});
@@ -48,15 +42,13 @@ iamApi.fnGetNewKey = function(){
 		//delete old key
 		iam.deleteAccessKey(objDeleteKey, function(err,data){
 			if(err){
-				console.log(err, err.stack);
+				fnResponse(err);
 				return;
 			}
+
+			fnResponse(null, config.aws_config);
 		});
 	});
 }
-
-//interval to get new access key
-var nExpireTime = (4*60 + 30)*1000; //not excess 5 mins
-var interval_getKey = setInterval(iamApi.fnGetNewKey, nExpireTime);
 
 module.exports = iamApi;

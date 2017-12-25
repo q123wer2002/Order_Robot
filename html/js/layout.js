@@ -19,7 +19,7 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			footer : "./templates/footer.html",
 		};
 	//get api url
-		var szApiServer = "http://localhost";
+		var szApiServer = "http://18.216.11.65:8000";
 		var objApiList = {
 			"USERIP" : "http://freegeoip.net/json/",
 			"ROBOT" : szApiServer + "/robotapi/talk?question=",

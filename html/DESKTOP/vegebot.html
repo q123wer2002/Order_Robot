@@ -2,7 +2,7 @@
 <html ng-app="vegefruit66" ng-controller="mainController">
 <head>
 	<link rel="shortcut icon" href="./images/favicon.ico" >
-	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./desktop_css/layout.css">
 	
 	<script type="text/javascript" src="./js/lib/angular.js"></script>
 	<script type="text/javascript" src="./js/lib/jquery.js"></script>
@@ -14,7 +14,7 @@
 
 	<!-- Load specific javascript or css -->
 	<script type="text/javascript" src="./js/vegebot.js"></script>
-	<link rel="stylesheet" type="text/css" href="./css/vegebot.css">
+	<link rel="stylesheet" type="text/css" href="./desktop_css/vegebot.css">
 	<script language="javascript" src="http://tts.itri.org.tw/TTScript/Text2SpeechJsApiV2.php?key=*25efg*231*26fddf*2A*14*2Aegacmf*60bl"></script>
 	<!-- End to load -->
 </head>
@@ -36,6 +36,9 @@
 		ga('create', 'UA-60904924-2', 'auto');
 		ga('send', 'pageview');
 	</script>
+
+	<!-- ng-include="$root.includePages.top" -->
+	<div class="header" ng-include="$root.includePages.top" ></div>
 
 	<!-- index start -->
 	<div>

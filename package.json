@@ -18,12 +18,13 @@
   "homepage": "https://github.com/q123wer2002/Order_Robot#readme",
   "dependencies": {
     "@google-cloud/speech": "^0.11.0",
-    "googleapis": "^23.0.0",
     "aws-sdk": "^2.145.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dynamodb": "^1.0.0",
     "express": "^4.16.2",
+    "googleapis": "^23.0.0",
+    "mobile-detect": "^1.4.1",
     "path": "^0.12.7",
     "sync-request": "^4.1.0",
     "uuid": "^3.1.0"

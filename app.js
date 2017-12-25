@@ -1,35 +1,34 @@
 'use strict'
 
 //lib
-var express = require('express');
-var app = express();
-var cors = require('cors')
-var bodyParser = require('body-parser');
-var robotapi = require('./route/robotapi');
-//var googleapi = require('./route/googleapi');
-//var awsapi = require('./route/awsapi');
-var path = require('path');
-const nPort = 8000;
+var m_express = require('express');
+var m_app = m_express();
+var m_cors = require('cors')
+var m_bodyParser = require('body-parser');
+var m_routePage = require('./route/routePage');
+var m_robotapi = require('./route/robotapi');
+//var m_googleapi = require('./route/googleapi');
+//var m_awsapi = require('./route/awsapi');
 //end lib
 
-app.use(cors());
-app.use('/static', express.static('html'));
-app.use(express.static('html'));
+//for setting
+m_app.use( m_cors() );
+m_app.use( '/static', m_express.static('public') );
+m_app.use( m_express.static('public') );
+m_app.use( m_bodyParser.json() );
+m_app.use( m_bodyParser.urlencoded({ extended: false }) );
+m_app.use( "/robotapi", m_robotapi );
+//m_app.use("/googleapi", m_googleapi);
+//m_app.use("/awsapi", m_awsapi);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/robotapi", robotapi);
-//app.use("/googleapi", googleapi);
-//app.use("/awsapi", awsapi);
+const m_nPort = 8000;
 
-//local var function
-var szHtmlPath = __dirname + "/html";
-//end local
+//templates
+m_app.get( '/templates/top', m_routePage.templateTop );
+m_app.get( '/templates/footer', m_routePage.templateFooter );
+m_app.get( '/', m_routePage.index );
+m_app.get( '/vegebot', m_routePage.vegebot );
 
-app.get('/', function (req, res) {
-	res.sendFile( path.join(szHtmlPath+'/index.html') );
-});
-
-app.listen(nPort, function () {
-	console.log('Example app listening on port ' + nPort + '!');
+m_app.listen(m_nPort, function(){
+	console.log('Example app listening on port ' + m_nPort + '!');
 });

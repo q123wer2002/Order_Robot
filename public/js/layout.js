@@ -2,6 +2,11 @@ var vegefruit66 = angular.module('vegefruit66', []);
 
 //controller
 vegefruit66.controller('mainController', function($scope, $rootScope,$http){
+	//server location
+		$rootScope.server = {
+			ip : "localhost",
+			port : 8000
+		};
 	//header
 		$rootScope.header = {
 			title : "蔬果溜溜",
@@ -14,12 +19,12 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 		};
 
 		$rootScope.includePages = {
-			top : "./templates/top.html",
+			top : "http://" + $rootScope.server["ip"] + ":" + $rootScope.server["port"] + "/templates/top",
 			body : "", //depends on page
-			footer : "./templates/footer.html",
+			footer : "http://" + $rootScope.server["ip"] + ":" + $rootScope.server["port"] + "/templates/footer",
 		};
 	//get api url
-		var szApiServer = "http://18.216.11.65:8000";
+		var szApiServer = "http://" + $rootScope.server["ip"] + ":" + $rootScope.server["port"];
 		var objApiList = {
 			"USERIP" : "http://freegeoip.net/json/",
 			"ROBOT" : szApiServer + "/robotapi/talk?question=",
@@ -35,14 +40,14 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 		}
 	//menu list
 		$rootScope.objMenuList = {
-			index : {name:"首頁", link:"index.html", isSelected:false, isShown:true},
-			/*farmerTalk : {name:"農民都說讚", link:"farmerTalk.html", isSelected:false, isShown:false},
-			friendShop : {name:"合作商家", link:"friendShop.html", isSelected:false, isShown:false},
-			masterVegeFood : {name:"蔬果大廚在這", link:"masterVegeFood.html", isSelected:false, isShown:false},
-			shipments : {name:"蔬果出貨區", link:"shipments.html", isSelected:false, isShown:true},
-			activity : {name:"一起探訪去", link:"activity.html", isSelected:false, isShown:true},
-			shopping : {name:"購物去吧！", link:"shopping.html", isSelected:false, isShown:true}*/
-			robotapi : {name:"蔬果機器人beta", link:"vegebot.html", isSelected:false, isShown:true, style:{} }
+			index : {name:"首頁", link:"index", isSelected:false, isShown:true},
+			//farmerTalk : {name:"農民都說讚", link:"farmerTalk.html", isSelected:false, isShown:false},
+			//friendShop : {name:"合作商家", link:"friendShop.html", isSelected:false, isShown:false},
+			//masterVegeFood : {name:"蔬果大廚在這", link:"masterVegeFood.html", isSelected:false, isShown:false},
+			//shipments : {name:"蔬果出貨區", link:"shipments.html", isSelected:false, isShown:true},
+			//activity : {name:"一起探訪去", link:"activity.html", isSelected:false, isShown:true},
+			//shopping : {name:"購物去吧！", link:"shopping.html", isSelected:false, isShown:true}
+			robotapi : {name:"蔬果機器人beta", link:"vegebot", isSelected:false, isShown:true, style:{} }
 		};
 
 		$rootScope.StyleTargetMenu = function(objMenu){

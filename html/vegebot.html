@@ -36,7 +36,14 @@
 		tts.PlayerSet.hidden = false;
 		tts.PlayerSet.width = 100; 
 		tts.PlayerSet.height = 30;
- 		tts.ConvertInit("id:content","AudioPlayer","Theresa","100","0","0","0","5");
+ 		tts.ConvertCustom("id:content","AudioPlayer","Theresa","100","0","0","0","5");
+
+		interval = setInterval(function(){
+			if(document.getElementById("AudioPlayer").childNodes.length>0){
+				clearInterval(interval);
+				document.getElementById("AudioPlayer").disabled=false;
+			}
+		},100);
 	</script>
 	
 	<!-- Audio Play-->
@@ -46,7 +53,7 @@
 			<div class="mute">不想聽到的內容</div> 
 			將會聽到的內容
 		</div>
-		<audio id="AudioPlayer" controls></audio>
+		<span id="AudioPlayer" controls></span>
 	</div>
 
 	<!-- index start -->

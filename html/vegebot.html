@@ -16,13 +16,12 @@
 	<script type="text/javascript" src="./js/vegebot.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/vegebot.css">
 	<script language="javascript" src="http://tts.itri.org.tw/TTScript/Text2SpeechJsApiV2.php?key=*25efg*231*26fddf*2A*14*2Aegacmf*60bl"></script>
-	<script language="javascript" src="http://tts.itri.org.tw/other/webttstest.js"></script>
 	<!-- End to load -->
 </head>
 <body ng-controller="vegebotController">
 
-	<!-- gogle analysis -->
 	<script>
+		//gogle analysis
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -30,10 +29,25 @@
 
 		ga('create', 'UA-60904924-2', 'auto');
 		ga('send', 'pageview');
+
+		//itri tts
+		var tts = new TTS();
+		tts.muteTag = "id:mute|class:mute"; 
+		tts.PlayerSet.hidden = false;
+		tts.PlayerSet.width = 100; 
+		tts.PlayerSet.height = 30;
+ 		tts.ConvertInit("id:content","media","Theresa","100","0","0","0","5");
 	</script>
 	
 	<!-- Audio Play-->
-	<audio id="AudioPlayer" style="display:none" controls></audio>
+	<div style="display:none">
+		<div id="content">
+			<div id="mute">不想聽到的內容</div> 
+			<div class="mute">不想聽到的內容</div> 
+			將會聽到的內容
+		</div>
+		<audio id="AudioPlayer" controls></audio>
+	</div>
 
 	<!-- index start -->
 	<div>

@@ -116,21 +116,6 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 
 	//speak
 	var fnSpeakAudio = function( szMessage ){
-		console.log(szMessage);
-		/*var szSpeakApiUrl = $rootScope.fnGetApiUrl( "SPEAK", szMessage );
-		$rootScope.fnAjax( "GET", szSpeakApiUrl, function(objError, objData){
-			if(objError) console.log(objError);
-
-			//set google tts url
-			//var HTMLGoogletts = document.getElementById("googletts");
-			//HTMLGoogletts.src = objData.data;
-
-			//speak
-			var AudioPlayer = document.getElementById("AudioPlayer");
-			AudioPlayer.src = objData.data;
-			AudioPlayer.play();
-		});*/
-
 		//init text
 		var ttsContent = document.getElementById("content");
 		ttsContent.value = szMessage;
@@ -144,11 +129,13 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
  		tts.ConvertCustom("id:content","AudioPlayer","Theresa","100","0","0","0","5");
 
 		interval = setInterval(function(){
-			if( document.getElementById("AudioPlayer").childNodes.length > 0 ){
-				clearInterval(interval);
-				AudioPlayer.play();
-				document.getElementById("AudioPlayer").disabled=false;
+			if( document.getElementById("AudioPlayer").childNodes.length <= 0 ){
+				return;
 			}
+
+			//start playing audio
+			clearInterval(interval);
+			document.getElementById("AudioPlayer").disabled=false;
 		},100);
 	}
 });

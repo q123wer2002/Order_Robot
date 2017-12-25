@@ -26,7 +26,10 @@ const m_nPort = 8000;
 //templates
 m_app.get( '/templates/top', m_routePage.templateTop );
 m_app.get( '/templates/footer', m_routePage.templateFooter );
+
+//pages
 m_app.get( '/', m_routePage.index );
+m_app.get( '/index', m_routePage.index );
 m_app.get( '/vegebot', m_routePage.vegebot );
 
 m_app.listen(m_nPort, function(){

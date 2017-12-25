@@ -23,6 +23,15 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			body : "", //depends on page
 			footer : "http://" + $rootScope.server["ip"] + ":" + $rootScope.server["port"] + "/templates/footer",
 		};
+
+		$rootScope.fnShowMenu = function(){
+			$('.lstMenu').animate({left : "0%"}, 500);
+			$('.bgBlack').css({display : "block"});
+		}
+		$rootScope.fnHideMenu = function(){
+			$('.lstMenu').animate({left : "-65%"}, 500);
+			$('.bgBlack').css({display : "none"});
+		}
 	//get api url
 		var szApiServer = "http://" + $rootScope.server["ip"] + ":" + $rootScope.server["port"];
 		var objApiList = {

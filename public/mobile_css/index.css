@@ -1,0 +1,31 @@
+#hint{
+	font-size: 25px;
+	font-weight: 700;
+	text-align: center;
+}
+.fruitIntro{
+	width: 100%;
+	margin: auto;
+}
+.fruitIntro img{
+	max-width: 150px;
+	max-height: 150px;
+	border: none;
+}
+.fruitIntro li{	
+	display: block;
+	position: relative;
+	width: 92%;
+	font-size: 12px;
+	list-style: none;
+	text-align: center;
+	margin: auto;
+}
+.fruitIntro h1{
+	color: #548235;
+	font-weight: 600;
+}
+.fruitIntro li p{
+	float: left;
+	text-align: left;
+}

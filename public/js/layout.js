@@ -4,7 +4,7 @@ var vegefruit66 = angular.module('vegefruit66', []);
 vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 	//server location
 		$rootScope.server = {
-			ip : "localhost",
+			ip : "18.216.11.65",
 			port : 8000
 		};
 	//header

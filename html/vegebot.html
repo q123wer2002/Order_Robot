@@ -20,6 +20,12 @@
 </head>
 <body ng-controller="vegebotController">
 
+	<!-- Audio Play-->
+	<div style="display:none">
+		<input id="content" value="HI">
+		<span id="AudioPlayer" controls></span>
+	</div>
+
 	<script>
 		//gogle analysis
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,32 +35,7 @@
 
 		ga('create', 'UA-60904924-2', 'auto');
 		ga('send', 'pageview');
-
-		//itri tts
-		var tts = new TTS();
-		tts.muteTag = "id:mute|class:mute"; 
-		tts.PlayerSet.hidden = false;
-		tts.PlayerSet.width = 100; 
-		tts.PlayerSet.height = 30;
- 		tts.ConvertCustom("id:content","AudioPlayer","Theresa","100","0","0","0","5");
-
-		interval = setInterval(function(){
-			if(document.getElementById("AudioPlayer").childNodes.length>0){
-				clearInterval(interval);
-				document.getElementById("AudioPlayer").disabled=false;
-			}
-		},100);
 	</script>
-	
-	<!-- Audio Play-->
-	<div style="display:none">
-		<div id="content">
-			<div id="mute">不想聽到的內容</div> 
-			<div class="mute">不想聽到的內容</div> 
-			將會聽到的內容
-		</div>
-		<span id="AudioPlayer" controls></span>
-	</div>
 
 	<!-- index start -->
 	<div>

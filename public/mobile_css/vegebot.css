@@ -1,0 +1,132 @@
+*{
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+.header{
+	height: 50px;
+	padding: 0;
+}
+.header .logo{
+	display: none;
+}
+/* Top Banner*/
+.TopBanner{
+	position: absolute;
+	top: 0px;
+	left: 50px;
+	text-align: left;
+	display: inline-block;
+}
+.TopBanner h2 span{
+	color: #000;
+	font-weight: 900;
+}
+.TopBanner #RobotHead{
+	width: 40px;
+	height: 40px;
+	background: url('../images/vegebot.png');
+	background-size: 100% auto;
+	background-position: center;
+	display: inline-block;
+}
+
+/* Bottom */
+.Bottom{
+	width: 100%;
+	overflow-y: auto;
+	height: auto;
+	border-top: 2px solid #548235;
+}
+.Bottom .LeftBottom{
+	width: 90%;
+	height: 50px;
+	margin: auto;
+	text-align: center;
+}
+.Bottom .RightBottom{
+	width: 100%;
+	display: inline-block;
+}
+.Bottom .RightBottom .TalkingSpace{
+	position: relative;
+	width: 100%;
+	margin: 15px 0px 0px 0px;
+}
+/* FOR CONVERSATION AREA*/
+.Bottom .RightBottom .TalkingSpace .ConversionArea{
+	width: 96%;
+	min-height: 50%;
+	background: #fff;
+	margin: 0px 2%;
+	border-radius: 3px;
+}
+.MessageDiv{
+	width: 100%;
+	background: #fff;
+}
+.Message{
+	max-width: 95%;
+	width: auto;
+	padding: 10px 15px;
+	margin: 3px 0px;
+	background: #ECECEC;
+	border-radius: 10px;
+}
+.Message .UserName{
+	font-weight: 900;
+	font-size: 16px;
+	color: #548235;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+	border-bottom: 2px solid #fff;
+}
+.Message .Content{
+	padding: 5px;
+}
+.Message .Timestamp{
+	text-align: right;
+	font-size: 12px;
+}
+.Left{
+	float: left;
+}
+.Right{
+	float: right;
+}
+.Error{
+	background:#FC7474;
+	color:#fff;
+}
+
+/* FOR TYPING AREA*/
+.Bottom .RightBottom .TalkingSpace .TypingArea{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	background: #F9D96B;
+}
+.Bottom .RightBottom .TalkingSpace .TypingArea #TypingText{
+	float: left;
+	max-width: 80%;
+	width: 75%;
+	padding: 0px 2%;
+	height: 35px;
+	font-size: 15px;
+	line-height: 35px;
+	margin: 2.5px 0px 0px 2%;
+	border-radius: 17px;
+}
+#btnSendMsg{
+	background: #56982A;
+	color: #fff;
+	font-style: 15px;
+	float: right;
+	line-height: 35px;
+	padding:0px 15px;
+	margin: 2.5px 5px 0px 0px;
+	max-width: 20%;
+	border-radius: 10px;
+}

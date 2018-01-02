@@ -2,6 +2,16 @@
 vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval){
 	$rootScope.currentLink = "vegebot.html";
 	
+	//set css
+	$scope.fnConversationHeight = function(){
+		var nTopHeight = $('.header').height() || 55;
+		var nBottomHeight = $('.TypingArea').height() || 45;
+		var nTotalHeight = window.screen.height;
+
+		var nConversationHeight = nTotalHeight - nTopHeight - nBottomHeight;
+		$('.Bottom').css({'max-height': nConversationHeight + 'px'});
+	}
+
 	$scope.szUserIP;
 	$scope.aryConversation = [];
 	$scope.objMessage = {

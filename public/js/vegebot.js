@@ -4,12 +4,12 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 	
 	//set css
 	$scope.fnConversationHeight = function(){
-		var nTopHeight = $('.header').height() || 55;
-		var nBottomHeight = $('.TypingArea').height() || 45;
+		var nTopHeight = $('.header').height() || 70;
+		var nBottomHeight = $('.TypingArea').height() || 60;
 		var nTotalHeight = window.screen.height;
 
 		var nConversationHeight = nTotalHeight - nTopHeight - nBottomHeight;
-		$('.Bottom').css({'max-height': nConversationHeight + 'px'});
+		$('.ConversionArea').css({'max-height': nConversationHeight + 'px'});
 	}
 
 	$scope.szUserIP;
@@ -70,8 +70,8 @@ vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval
 		}
 
 		//ui, scroll to down
-		var nHeight = jQuery('.ConversionArea').prop('scrollHeight') - jQuery('.ConversionArea').position().top;
-		jQuery('.ConversionArea').animate({ scrollTop: nHeight }, 150);
+		var nHeight = $('.ConversionArea').prop('scrollHeight') - $('.ConversionArea').position().top;
+		$('.ConversionArea').animate({ scrollTop: nHeight }, 150);
 
 		//save into db
 		if( isInitDone == false ){

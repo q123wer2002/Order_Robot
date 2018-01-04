@@ -34,15 +34,8 @@
 /* Bottom */
 .Bottom{
 	width: 100%;
-	overflow-y: auto;
 	height: auto;
 	border-top: 2px solid #548235;
-}
-.Bottom .LeftBottom{
-	width: 90%;
-	height: 50px;
-	margin: auto;
-	text-align: center;
 }
 .Bottom .RightBottom{
 	width: 100%;
@@ -57,6 +50,7 @@
 .Bottom .RightBottom .TalkingSpace .ConversionArea{
 	width: 96%;
 	min-height: 50%;
+	overflow-y: auto;
 	background: #fff;
 	margin: 0px 2%;
 	border-radius: 3px;

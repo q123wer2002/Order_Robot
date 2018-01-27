@@ -1,0 +1,74 @@
+.body{
+	text-align: center;
+	margin-top: 65px;
+}
+.subPage{
+	width: 100%;
+	height: 100%;
+}
+.DrinksUl{
+	width: 96%;
+	margin: auto;
+	list-style: none;
+	text-align: left;
+}
+
+.DrinksUl li{
+	display: inline-block;
+	width: 40%;
+	padding:10px 3%;
+	border:1px solid #548235;
+	height: 170px;
+	margin: 5px 1.5%;
+	text-align: center;
+}
+
+.DrinksUl li .photo{
+	width: 100%;
+	height: 100px;
+	margin: 5px auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.DrinksUl li .controlDiv{
+	width: 80%;
+	margin: 5px auto;
+	text-align: center;
+	position: relative;
+}
+.DrinksUl li .controlDiv .symbol{
+	background: #548235;
+	padding: 5px;
+	color: #fff;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+}
+.DrinksUl li .controlDiv .left{
+	left: 0px;
+}
+.DrinksUl li .controlDiv .right{
+	right: 0px;
+}
+.DrinksUl li .controlDiv input{
+	width: 45px;
+	text-align: center;
+	border:1px solid #fff;
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 900;
+}
+.btnGoPaying{
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	bottom: 0;
+	background:red;
+	color:#fff;
+	line-height: 40px;
+}

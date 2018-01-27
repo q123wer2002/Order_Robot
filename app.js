@@ -35,6 +35,7 @@ if ('development' == m_app.get('env')) {
 m_app.get( '/', m_routePage.index );
 m_app.get( '/index', m_routePage.index );
 m_app.get( '/vegebot', m_routePage.vegebot );
+m_app.get( '/order', m_routePage.order );
 
 m_app.listen( m_app.get('port'), function(){
 	console.log('Example app listening on port ' + m_app.get('port') + '!');

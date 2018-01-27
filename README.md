@@ -1,2 +1,8 @@
 # Order_Robot
-use robot to order menu
+
+1. 線上點餐 (需要時時同步 web socket)
+	1.1 取得共同點餐網址 → 滿額優惠
+	1.2 付款方式 (不可再點餐，除非 host 再度開啟)
+		1.2.1 取得現場付款 QR code
+		1.2.2 行動支付 (街角...)
+	1.3 未來要有分類

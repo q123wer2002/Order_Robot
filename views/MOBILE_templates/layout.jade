@@ -6,7 +6,7 @@ html(ng-app='vegefruit66', ng-controller='mainController')
 		script(type='text/javascript', src='/js/lib/jquery.js')
 		script(type='text/javascript', src='/js/layout.js')
 		meta(name='{{meta.name}}', content='{{meta.content}}', ng-repeat='meta in $root.header.metas')
-		title {{$root.header.title}}_#{title}
+		title #{title}
 	body
 		block scripts
 		block links

@@ -56,7 +56,8 @@ vegefruit66.controller('mainController', function($scope, $rootScope,$http){
 			//shipments : {name:"蔬果出貨區", link:"shipments.html", isSelected:false, isShown:true},
 			//activity : {name:"一起探訪去", link:"activity.html", isSelected:false, isShown:true},
 			//shopping : {name:"購物去吧！", link:"shopping.html", isSelected:false, isShown:true}
-			robotapi : {name:"蔬果機器人beta", link:"vegebot", isSelected:false, isShown:true, style:{} }
+			order : {name:"線上點餐", link:"order", isSelected:false, isShown:true, style:{} },
+			robotapi : {name:"蔬果機器人beta", link:"vegebot", isSelected:false, isShown:true, style:{} },
 		};
 
 		$rootScope.StyleTargetMenu = function(objMenu){

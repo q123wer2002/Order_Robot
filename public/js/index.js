@@ -1,6 +1,6 @@
 //
 vegefruit66.controller('indexController', function($scope,$rootScope){
-	$rootScope.currentLink = "index.html";
+	$rootScope.currentLink = "index";
 
 	$scope.aryFruitIntro = [
 		{'picUri':'http://' + $rootScope.server['ip'] + ':' + $rootScope.server['port'] + '/images/index/orange.png', 'name':"柳丁", "info":"柳丁的維生素C可保護細胞，對抗自由基；果肉所含的膳食纖維，則可以促進消化、改善便祕。另外，所含的果膠能加速食物通過消化道，使脂質、膽固醇更快從糞便排泄出去；含有的檸檬酸，則可以幫助胃液對脂肪物質進行消化，並增進食慾。"},

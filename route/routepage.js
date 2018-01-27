@@ -18,10 +18,13 @@ function fnGetDeviceName( request ){
 
 //route
 m_app.index = function(req,res){
-	res.render( fnGetDeviceName( req ) + '_index', {title:"首頁"} );
+	res.render( fnGetDeviceName( req ) + '_index', {title:"蔬果溜溜"} );
 }
 m_app.vegebot = function(req,res){
-	res.render( fnGetDeviceName( req ) + '_vegebot', {title:"機器人"} );
+	res.render( fnGetDeviceName( req ) + '_vegebot', {title:"點餐機器人"} );
+}
+m_app.order = function(req,res){
+	res.render( fnGetDeviceName( req ) + '_order', {title:"線上點餐"} );
 }
 
 module.exports = m_app;

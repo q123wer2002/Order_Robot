@@ -30,6 +30,7 @@ hr{width: 50%;border-color: rgba(255,255,255,0.3);}
 	min-height: 324px;
 	background: url("./../images/banner_fruit.jpg");
 	background-position: center;
+	background-repeat: no-repeat;
 	font-size: 18px;
 }
 	.logo{

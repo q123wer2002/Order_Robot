@@ -1,0 +1,13 @@
+html(ng-app='vegefruit66', ng-controller='mainController')
+	head
+		link(rel='shortcut icon', href='/images/favicon.ico')
+		link(rel='stylesheet', type='text/css', href='/mobile_css/layout.css')
+		script(type='text/javascript', src='/js/lib/angular.js')
+		script(type='text/javascript', src='/js/lib/jquery.js')
+		script(type='text/javascript', src='/js/layout.js')
+		meta(name='{{meta.name}}', content='{{meta.content}}', ng-repeat='meta in $root.header.metas')
+		title {{$root.header.title}}_#{title}
+	body
+		block scripts
+		block links
+		block content

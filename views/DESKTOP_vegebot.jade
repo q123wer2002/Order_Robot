@@ -1,0 +1,45 @@
+extends ./DESKTOP_templates/layout.jade
+block scripts
+	script(type='text/javascript', src='/js/vegebot.js')
+	script(language="javascript", src="http://tts.itri.org.tw/TTScript/Text2SpeechJsApiV2.php?key=*25efg*231*26fddf*2A*14*2Aegacmf*60bl")
+block links
+	link(rel='stylesheet', type='text/css', href='/desktop_css/vegebot.css')
+block content
+	.Mainbody(ng-controller='vegebotController')
+		//Audio Play
+		div(style='display:none')
+			input#content(value='HI')
+			span#AudioPlayer(controls='')
+
+		// gogle analysis
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-60904924-2', 'auto');
+			ga('send', 'pageview');
+
+		//include ./DESKTOP_templates/top.jade
+
+		.body
+			div
+				.TopBanner
+					h1 蔬果機器人 beta
+					#RobotHead
+				.Bottom
+					.LeftBottom
+						p 我們是蔬果機器人，可以滿足您的需求，只需要和我們說說話唷
+					.RightBottom
+						.TalkingSpace
+							.ConversionArea(ng-init='objMessage.fnSendMsg(true)')
+								.MessageDiv(ng-class='{Left:msg.isRobot,Right:!msg.isRobot}', ng-repeat='msg in aryConversation')
+									.Message(ng-class='{Left:msg.isRobot,Right:!msg.isRobot,Error:msg.isError}')
+										.UserName {{msg.sender}}
+										.Content {{msg.content}}
+										.Timestamp {{msg.timestamp}}
+							.TypingArea
+								input#TypingText(type='text', placeholder='輸入與機器人說話的內容', ng-model='objMessage.szMessage', ng-enter='objMessage.fnSendMsg(false)')
+								a#btnSendMsg(href='javascript:;', ng-click='objMessage.fnSendMsg(false)') 送出
+
+		include ./DESKTOP_templates/footer.jade

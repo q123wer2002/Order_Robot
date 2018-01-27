@@ -1,6 +1,6 @@
 //
 vegefruit66.controller('vegebotController', function($scope,$rootScope,$interval){
-	$rootScope.currentLink = "vegebot.html";
+	$rootScope.currentLink = "vegebot";
 	
 	//set css
 	$scope.fnConversationHeight = function(){
